@@ -15,7 +15,7 @@ jobs:
   plan: 
   - get: Download Source
   - task: run
-    file: Run.yml
+    file: ops/Run.yml
  
  
 # Add the pipeline
