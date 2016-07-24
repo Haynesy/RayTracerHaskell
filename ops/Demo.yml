@@ -1,0 +1,26 @@
+# Add target: 
+# fly -t <target> login -c http://192.168.100.4:8080/
+
+resources:
+
+- name: Download Source
+  type: git
+  source:
+    uri: https://github.com/Haynesy/RayTracerHaskell.git
+
+jobs:
+
+- name: Run Application
+  public: true
+  plan: 
+  - get: Download Source
+  - task: run
+    file: Run.yml
+ 
+ 
+# Add the pipeline
+# fly -t <target> set-pipeline -p <pipeline> -c <filename>
+
+# Update pipeline
+# fly -t <target> -p <pipeline> -c <filename>
+
