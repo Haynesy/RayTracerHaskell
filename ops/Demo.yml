@@ -13,9 +13,17 @@ jobs:
 - name: Run Application
   public: true
   plan: 
-  - get: Download Source
   - task: run
-    file: ops/Run.yml
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu, tag: "14.04"}
+      run:
+        get: Download Source
+        path: ls
+        args: [-a]
+    #file: ./ops/Run.yml
  
  
 # Add the pipeline
